@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://source.unsplash.com/user/erondu/1600x900")
+}
+
+#regForm {
+  background-color: #c2d6d6;
+  margin: 40px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 50%;
+  max-width: 45%;
+  opacity: 0.8;
+}
+@media only screen and (max-width: 600px) {
+  #regForm {
+  background-color: #c2d6d6;
+  margin: 30px auto;
+  font-family: Raleway;
+  padding: 20px;
+  width: 30%;
+  max-width: 35%;
+}
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 8px;
+  width: 60%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+  text-align: center;
+  margin-left:18%;
+
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #04AA6D;
+  color: #ffffff;
+  border: none;
+  padding: 5px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  /* background-color: #bbbbbb; */
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 0;
+}
+
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  /* background-color: #04AA6D; */
+
+}
+nav{
+      background-color: rgb(0,0,0,0.3);
+      height: 15vh;
+    }
+    .row{
+      display: flex ;
+     flex-wrap: nowrap;
+
+     
+    }
+    .row  a{
+  width: 80px;
+  margin: 7px;
+  text-align: center;
+  font-size: 30px;
+ text-decoration: none;
+
+    }
+    .fttr{
+      padding-left: 28%;
+      padding-top: 3%;
+    }
+    .dropdwn{
+      display:inline-block;
+      width: 100px;
+      height: 30px;
+      background-color: yellow;
+    }
+</style>
+<body>
+<nav class="navbar navbar-dark ">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="logo.png" alt="" width="75" height="65">Auto Insurance 
+    </a>
+  </div>
+</nav>
+<form id="regForm" action="https://eeltracklp.leadspediatrack.com/post.do" method="POST">
+  <h1>Auto Insurance form:</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+    <p><input placeholder="First name..." oninput="this.className = ''" name="first_name" id="first_name"></p>
+    <p><input placeholder="Last name..." oninput="this.className = ''" name="last_name" id="last_name"></p>
+  </div>
+  <div class="tab">Address:
+    <p><input placeholder="address" oninput="this.className = ''" name="address" id="address"></p>
+    <p><input placeholder="address2" oninput="this.className = ''" name="address2" id="address2"></p>
+    <p><input placeholder="city" oninput="this.className = ''" name="city" id="city"></p>
+    <p><input placeholder="state" oninput="this.className = ''" name="state" id="state"></p>
+    <p><input placeholder="zip_code" oninput="this.className = ''" name="zip_code" id="zip_code"></p>
+    <p><input placeholder="phone_home" oninput="this.className = ''" name="phone_home" id="phone_home"></p>
+    
+  </div>
+  <div class="tab">
+    <p><input placeholder="E-mail..." oninput="this.className = ''" name="email_address" id="email_address"></p>
+    <p><input placeholder="DD-MM-YYYY" oninput="this.className = ''" name="dob" id="dob"></p>
+  </div>
+  <div class="tab">
+    <label for="driver_relationship">Driver Relationship:</label><br>
+    <select id="driver_relationship" name="driver_relationship" class="dropdwn">
+      <option value="Child">Child</option>
+      <option value="Grandchild">Grandchild</option>
+      <option value="Grandparent">Grandparent</option>
+      <option value="Other">Other</option>
+      <option value="Parent">Parent</option>
+      <option value="Self">Self</option>
+      <option value="Sibling">Sibling</option>
+      <option value="Spouse">Spouse</option>
+    </select>
+    <br><br>  
+    <h5>How many years at Current Residence?</h5>
+    <label for="years_at_current_residence">years_at_current_residence:</label><br>
+    <select id="years_at_current_residence" name="years_at_current_residence" class="dropdwn">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6+">6+</option>
+      
+    </select>
+  </div>
+  <div class="tab">
+    <!-- <p><input placeholder="tcpa_consent_text" oninput="this.className = ''" name="tcpa_consent_text" id="tcpa_consent_text"></p> -->
+    <label for="requires_sr22">Requires_sr22:</label><br>
+    <select id="requires_sr22" name="requires_sr22" class="dropdwn">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+      
+    </select>
+    
+  </div>
+  <div class="tab">
+    <label for="bankruptcy">Currently Employed:</label><br>
+    <select id="bankruptcy" name="bankruptcy" class="dropdwn">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+      
+    </select>
+    
+    <label for="currently_employed">Currently Employed:</label><br>
+    <select id="currently_employed" name="currently_employed" class="dropdwn">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+      
+    </select>
+  </div>
+  <div class="tab">
+    <label for="requested_policy_coverage_type">Requested Policy Coverage Type:</label><br>
+    <select id="requested_policy_coverage_type" name="requested_policy_coverage_type" class="dropdwn">
+      <option value="Preferred">Preferred</option>
+      <option value="Premium">Premium</option>
+      <option value="Standard">Standard</option>
+      <option value="State_Minimum">State_Minimum</option>
+ </select>
+ <br>
+</div>
+ <div class="tab">
+   <div style="width: 25%;"><h3>gender</h3>
+    <input type="radio" name="gender" value="M" id="gender">
+  <label for="male">Male</label>
+  <input type="radio" name="gender" value="F" id="gender">
+  <label for="female">Female</label></div>
+  
+  </div>
+  <div class="tab">
+    
+    <label for="license_status">license_status</label><br>
+    <select id="license_status" name="license_status" class="dropdwn">
+      <option value="Active">Active</option>
+      <option value="Suspended">Suspended</option>
+      <option value="Probation">Probation</option>
+      <option value="Restricted">Restricted</option>
+      <option value="Learner Permit">Learner Permit</option>
+      <option value="Temporary">Temporary</option>
+      <option value="International">International</option>
+      <option value="Expired">Expired</option>
+ </select>
+ <br>
+  
+    <!-- <p><input placeholder="landing_page" oninput="this.className = ''" name="landing_page" id="landing_page"></p> -->
+  </div>
+  <div class="tab">
+    <label for="marital_status">Marital Status</label><br>
+    <select id="marital_status" name="marital_status" class="dropdwn">
+      <option value="Divorced">Married</option>
+      <option value="Other">Other</option>
+      <option value="Separated">Separated</option>
+      <option value="Single">Single</option>
+      <option value="Widowed">Widowed</option>
+ </select><br>
+
+ <label for="marital_status">license Status</label><br>
+    <select id="marital_status" name="marital_status" class="dropdwn">
+      <option value="Active">Active</option>
+      <option value="Suspended">Suspended</option>
+      <option value="Probation">Probation</option>
+      <option value="Restricted">Restricted</option>
+      <option value="Learner Permit">Learner Permit</option>
+      <option value="Temporary">Temporary</option>
+      <option value="International">International</option>
+      <option value="Expired">Expired</option>
+ </select>
+  </div>
+  <div class="tab">
+    <label for="education">Education</label><br>
+    <select id="education" name="education" class="dropdwn">
+      <option value="Associate Degree">Associate Degree</option>
+      <option value="Bachelors Degree">Bachelors Degree</option>
+      <option value="Doctorate Degree">Doctorate Degree</option>
+      <option value="High School Diploma">High School Diploma</option>
+      <option value="High School Diploma">High School Diploma</option>
+      <option value="Masters Degree">Masters Degree</option>
+      <option value="Some College">Some College</option>
+      <option value="Some or No High School">Some or No High School</option>
+      <option value="Unknown">Unknown</option>
+ </select><br>
+
+ <label for="homeowner">Homeowner</label><br>
+    <select id="homeowner" name="homeowner" class="dropdwn">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+      
+ </select>
+</div>
+  <div class="tab">
+    <label for="vehicle_ownership">vehicle_ownership</label><br>
+    <select id="vehicle_ownership" name="vehicle_ownership" class="dropdwn">
+      <option value="Lease">Lease</option>
+      <option value="Own">Own</option>
+     </select>
+     <br>
+ <label for="vehicle_primary_use">vehicle_primary_use</label><br>
+    <select id="vehicle_primary_use" name="vehicle_primary_use" class="dropdwn">
+      <option value="Business">Business</option>
+      <option value="Commute School">Commute School</option>
+      <option value="Commute Varies">Commute Varies</option>
+      <option value="Commute Work">Commute Work</option>
+      <option value="Pleasure">Pleasure</option>
+
+ </select>
+    
+  </div>
+  <div class="tab">
+    <label for="occupation">occupation</label><br>
+    <select id="occupation" name="occupation" >
+      <option value="Chiropractor">-  Chiropractor</option>
+      <option value="Dentist">-  Dentist</option>
+      <option value="Dietitian or Nutritionist">-  Dietitian or Nutritionist</option>
+      <option value="Optometrist">-  Optometrist</option>
+      <option value="Pharmacist">-  Pharmacist</option>
+      <option value="Physician">-  Physician</option>
+      <option value="Physician Assistant">-  Physician Assistant</option>
+      <option value="Podiatrist">-  Podiatrist</option>
+      <option value="Registered Nurse">-  Registered Nurse</option>
+      <option value="Therapist">-  Therapist</option>
+      <option value="Veterinarian">-  Veterinarian</option>
+      <option value="Health Technologist or Technician">-  Health Technologist or Technician</option>
+      <option value="Other Healthcare Practitioners and Technical Occupation">-  Other Healthcare Practitioners and Technical Occupation</option>
+      <option value="Nursing, Psychiatric, or Home Health Aide">-  Nursing, Psychiatric, or Home Health Aide</option>
+      <option value="Occupational and Physical Therapist Assistant or Aide">-  Occupational and Physical Therapist Assistant or Aide</option>
+      <option value="Other Healthcare Support Occupation">-  Other Healthcare Support Occupation</option>
+      <option value="Chief Executive">-  Chief Executive</option>
+      <option value="General and Operations Manager">-  General and Operations Manager</option>
+      <option value="Advertising, Marketing, Promotions, Public Relations, and Sales Manager">-  Advertising, Marketing, Promotions, Public Relations, and Sales Manager</option>
+      <option value="Operations Specialties Manager (e.g., IT or HR Manager)">-  Operations Specialties Manager (e.g., IT or HR Manager)</option>
+      <option value="Construction Manager">-  Construction Manager</option>
+      <option value="Engineering Manager">-  Engineering Manager</option>
+      <option value="Accountant, Auditor">-  Accountant, Auditor</option>
+      <option value="Business Operations or Financial Specialist">-  Business Operations or Financial Specialist</option>
+      <option value="Business Owner">-  Business Owner</option>
+      <option value="Other Business, Executive, Management, Financial Occupation">-  Other Business, Executive, Management, Financial Occupation</option>
+      <option value="Architect, Surveyor, or Cartographer">-  Architect, Surveyor, or Cartographer</option>
+      <option value="Engineer">-  Engineer</option>
+      <option value="Other Architecture and Engineering Occupation">-  Other Architecture and Engineering Occupation</option>
+      <option value="Postsecondary Teacher (e.g., College Professor)">-  Postsecondary Teacher (e.g., College Professor)</option>
+      <option value="Primary, Secondary, or Special Education School Teacher">-  Primary, Secondary, or Special Education School Teacher</option>
+      <option value="Other Teacher or Instructor">-  Other Teacher or Instructor</option>
+      <option value="Other Education, Training, and Library Occupation">-  Other Education, Training, and Library Occupation</option>
+      <option value="Arts, Design, Entertainment, Sports, and Media Occupations">-  Arts, Design, Entertainment, Sports, and Media Occupations</option>
+      <option value="Computer Specialist, Mathematical Science">-  Computer Specialist, Mathematical Science</option>
+      <option value="Counselor, Social Worker, or Other Community and Social Service Specialist">-  Counselor, Social Worker, or Other Community and Social Service Specialist</option>
+      <option value="Lawyer, Judge">-  Lawyer, Judge</option>
+      <option value="Life Scientist (e.g., Animal, Food, Soil, or Biological Scientist, Zoologist)">-  Life Scientist (e.g., Animal, Food, Soil, or Biological Scientist, Zoologist)</option>
+      <option value="Physical Scientist (e.g., Astronomer, Physicist, Chemist, Hydrologist)">-  Physical Scientist (e.g., Astronomer, Physicist, Chemist, Hydrologist)</option>
+      <option value="Religious Worker (e.g., Clergy, Director of Religious Activities or Education)">-  Religious Worker (e.g., Clergy, Director of Religious Activities or Education)</option>
+      <option value="Social Scientist and Related Worker">-  Social Scientist and Related Worker</option>
+      <option value=" Other Professional Occupation">-  Other Professional Occupation</option>
+      <option value="Supervisor of Administrative Support Workers">-  Supervisor of Administrative Support Workers</option>
+      <option value="Financial Clerk">-  Financial Clerk</option>
+      <option value="Secretary or Administrative Assistant">-  Secretary or Administrative Assistant</option>
+      <option value="Material Recording, Scheduling, and Dispatching Worker">-  Material Recording, Scheduling, and Dispatching Worker</option>
+      <option value="Other Office and Administrative Support Occupation">-  Other Office and Administrative Support Occupation</option>
+      <option value="Protective Service (e.g., Fire Fighting, Police Officer, Correctional Officer)">-  Protective Service (e.g., Fire Fighting, Police Officer, Correctional Officer)</option>
+      <option value="Chef or Head Cook">-  Chef or Head Cook</option>
+      <option value="Cook or Food Preparation Worker">-  Cook or Food Preparation Worker</option>
+      <option value="Food and Beverage Serving Worker (e.g., Bartender, Waiter, Waitress)">-  Food and Beverage Serving Worker (e.g., Bartender, Waiter, Waitress)</option>
+      <option value="Building and Grounds Cleaning and Maintenance">-  Building and Grounds Cleaning and Maintenance</option>
+      <option value="Personal Care and Service (e.g., Hairdresser, Flight Attendant, Concierge)">-  Personal Care and Service (e.g., Hairdresser, Flight Attendant, Concierge)</option>
+      <option value="Sales Supervisor, Retail Sales">-  Sales Supervisor, Retail Sales</option>
+      <option value="Retail Sales Worker">-  Retail Sales Worker</option>
+      <option value="Insurance Sales Agent">-  Insurance Sales Agent</option>
+      <option value="Sales Representative">-  Sales Representative</option>
+      <option value="Real Estate Sales Agent">-  Real Estate Sales Agent</option>
+      <option value="Other Services Occupation">-  Other Services Occupation</option>
+      <option value="Construction and Extraction (e.g., Construction Laborer, Electrician)">-  Construction and Extraction (e.g., Construction Laborer, Electrician)</option>
+      <option value="Farming, Fishing, and Forestry">-  Farming, Fishing, and Forestry</option>
+      <option value="Installation, Maintenance, and Repair">-  Installation, Maintenance, and Repair</option>
+      <option value="Production Occupations">-  Production Occupations</option>
+      <option value="Other Agriculture, Maintenance, Repair, and Skilled Crafts Occupation">-  Other Agriculture, Maintenance, Repair, and Skilled Crafts Occupation</option>
+      <option value="Aircraft Pilot or Flight Engineer">-  Aircraft Pilot or Flight Engineer</option>
+      <option value="Motor Vehicle Operator (e.g., Ambulance, Bus, Taxi, or Truck Driver)">-  Motor Vehicle Operator (e.g., Ambulance, Bus, Taxi, or Truck Driver)</option>
+      <option value="Other Transportation Occupation">-  Other Transportation Occupation</option>
+      <option value="Military">-  Military</option>
+      <option value="Homemaker">-  Homemaker</option>
+      <option value="Other Occupation">-  Other Occupation</option>
+      <option value="Don't Know">-  Don't Know</option>
+      <option value="Not Applicable">-  Not Applicable</option>
+      
+ </select>
+ <label for="tickets_or_claims_in_last_three_years">Homeowner</label><br>
+ <select id="tickets_or_claims_in_last_three_years" name="tickets_or_claims_in_last_three_years" class="tickets_or_claims_in_last_three_years">
+   <option value="1">Yes</option>
+   <option value="0">No</option>
+   
+</select>
+  </div>
+  <div class="tab">
+
+<label for="vehicle_model">Vehicle Model</label><br>
+    <select id="vehicle_model" name="vehicle_model" class="dropdwn">
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+      <option value="2010">2010</option>
+      <option value="2009">2009</option>
+      <option value="2008">2008</option>
+      <option value="2007">2007</option>
+      <option value="2006">2006</option>
+      <option value="2005">2005</option>
+      <option value="2004">2004</option>
+      <option value="2003">2003</option>
+      <option value="2002">2002</option>
+      <option value="2001">2001</option>
+      <option value="2000">2000</option>
+      <option value="1999">1999</option>
+      <option value="1998">1998</option>
+      <option value="1997">1997</option>
+      <option value="1996">1996</option>
+      <option value="1995">1995</option>
+      <option value="1994">1994</option>
+      <option value="1993">1993</option>
+      <option value="1992">1992</option>
+      
+      
+ </select><br>
+ <label for="vehicle_make">vehicle_make</label><br>
+ <select id="vehicle_make" name="vehicle_make" class="vehicle_make">
+  <option class="vehicle-search" value="Make">Make</option>
+	<option class="vehicle-search" value="BMW">BMW</option>
+	<option class="vehicle-search" value="Daewoo">Daewoo</option>
+	<option class="vehicle-search" value="Ford">Ford</option>
+	<option class="vehicle-search" value="Holden">Holden</option>
+	<option class="vehicle-search" value="Honda">Honda</option>
+	<option class="vehicle-search" value="Hyundai">Hyundai</option>
+	<option class="vehicle-search" value="Isuzu">Isuzu</option>
+	<option class="vehicle-search" value="Kia">Kia</option>
+	<option class="vehicle-search" value="Lexus">Lexus</option>
+	<option class="vehicle-search" value="Mazda">Mazda</option>
+	<option class="vehicle-search" value="Mitsubishi">Mitsubishi</option>
+	<option class="vehicle-search" value="Nissan">Nissan</option>
+	<option class="vehicle-search" value="Peugeot">Peugeot</option>
+	<option class="vehicle-search" value="Subaru">Subaru</option>
+	<option class="vehicle-search" value="Suzuki">Suzuki</option>
+	<option class="vehicle-search" value="Toyota">Toyota</option>
+	<option class="vehicle-search" value="Volkswagen">Volkswagen</option>
+  
+	<option class="318i" value="318i">318i</option>
+	<option class="lanos" value="Lanos">Lanos</option>
+	<option class="courier" value="Courier">Courier</option>
+	<option class="falcon" value="Falcon">Falcon</option>
+	<option class="festiva" value="Festiva">Festiva</option>
+	<option class="fiesta" value="Fiesta">Fiesta</option>
+	<option class="focus" value="Focus">Focus</option>
+	<option class="laser" value="Laser">Laser</option>
+	<option class="ranger" value="Ranger">Ranger</option>
+	<option class="territory" value="Territory">Territory</option>
+	<option class="astra" value="Astra">Astra</option>
+	<option class="barina" value="Barina">Barina</option>
+	<option class="captiva" value="Captiva">Captiva</option>
+	<option class="colorado" value="Colorado">Colorado</option>
+	<option class="commodore" value="Commodore">Commodore</option>
+	<option class="cruze" value="Cruze">Cruze</option>
+	<option class="rodeo" value="Rodeo">Rodeo</option>
+	<option class="viva" value="Viva">Viva</option>
+   
+</select>
+  </div>
+  <div class="tab">
+    
+    <p><input placeholder="vehicle_submodel" oninput="this.className = ''" name="vehicle_submodel" id="vehicle_submodel"></p>
+    <p><input placeholder="	vehicle_vin" oninput="this.className = ''" name="vehicle_vin" id="vehicle_vin"></p>
+    <p><input placeholder="estimated_annual_mileage" oninput="this.className = ''" name="estimated_annual_mileage" id="estimated_annual_mileage"></p>
+  </div>
+  <div class="tab">
+   
+    <br>
+    <label for="residence_status">Residence Status</label><br>
+    <select id="residence_status" name="residence_status" class="dropdwn">
+      <option value="Other">Other</option>
+      <option value="Own">Own</option>
+      <option value="Rent">Rent</option>
+      
+      
+ </select>
+    
+  </div>
+  <div class="tab">
+    <label for="homeowner">Homeowner</label><br>
+    <select id="homeowner" name="homeowner" class="dropdwn">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+      
+ </select><br>
+ <label for="currently_insured">currently_insured</label><br>
+ <select id="currently_insured" name="currently_insured" class="dropdwn">
+   <option value="Yes">Yes</option>
+   <option value="No">No</option>
+   
+</select><br>
+
+  <label for="current_insurance_company">currently_insured</label><br>
+  <select id="current_insurance_company" name="current_insurance_company" class="dropdwn">
+    <option value="Not Insured at This Time">Not Insured at This Time</option>
+    <option value="Other">Other</option>
+    <option value="21st Century Insurance">21st Century Insurance</option>
+   <option value="AAA Insurance Co">AAA Insurance Co</option>
+   <option value="AARP">AARP</option>
+    <option value="AETNA">AETNA</option>
+   <option value="AFLAC">AFLAC</option>
+   <option value="AIG">AIG</option>
+    <option value="AIU Insurance">AIU Insurance</option>
+   <option value="Allied">Allied</option>
+   <option value="Allstate">Allstate</option>
+    <option value="Allstate County Mutual">Allstate County Mutual</option>
+   <option value="Allstate Indemnity">Allstate Indemnity</option>
+   <option value="Allstate Insurance">Allstate Insurance</option>
+    <option value="American Alliance Insurance">American Alliance Insurance</option>
+   <option value="American Automobile Insurance">American Automobile Insurance</option>
+   <option value="American Casualty">American Casualty</option>
+    <option value="American Deposit Insurance">American Deposit Insurance</option>
+   <option value="American Direct Business Insurance">American Direct Business Insurance</option>
+   <option value="American Empire Insurance">American Empire Insurance</option>
+    <option value="American Family">American Family</option>
+   <option value="American Family Insurance">American Family Insurance</option>
+   <option value="American Family Mutual">American Family Mutual</option>
+    <option value="American Financial">American Financial</option>
+   <option value="American Health Underwriters">American Health Underwriters</option>
+   <option value="American Home Assurance">American Home Assurance</option>
+    <option value="American Insurance">American Insurance</option>
+   <option value="American International Ins">American International Ins</option>
+   <option value="American International Pacific">American International Pacific</option>
+    <option value="American International South">American International South</option>
+   <option value="American Manufacturers">American Manufacturers</option>
+   <option value="American Mayflower Insurance">American Mayflower Insurance</option>
+    <option value="American Motorists Insurance">American Motorists Insurance</option>
+   <option value="American National Insurance">American National Insurance</option>
+   <option value="American Premier Insurance">American Premier Insurance</option>
+    <option value="American Protection Insurance">American Protection Insurance</option>
+   <option value="American Republic">American Republic</option>
+   <option value="American Savers Plan">American Savers Plan</option>
+    <option value="American Service Insurance">American Service Insurance</option>
+   <option value="American Skyline Insurance Company">American Skyline Insurance Company</option>
+   <option value="American Spirit Insurance">American Spirit Insurance</option>
+    <option value="American Standard Insurance - OH">American Standard Insurance - OH</option>
+   <option value="American Standard Insurance - WI">American Standard Insurance - WI</option>
+   <option value="AmeriPlan">AmeriPlan</option>
+    <option value="Amica Insurance">Amica Insurance</option>
+   <option value="Answer Financial">Answer Financial</option>
+   <option value="Arbella">Arbella</option>
+    <option value="Associated Indemnity">Associated Indemnity</option>
+   <option value="Assurant">AssurantNo</option>
+   <option value="Atlanta Casualty">Atlanta Casualty</option>
+    <option value="Atlantic Indemnity">Atlantic Indemnity</option>
+   <option value="Auto Club Insurance Company">Auto Club Insurance Company</option>
+   <option value="AXA Advisors">AXA Advisors</option>
+    <option value="Bankers Life and Casualty">Bankers Life and Casualty</option>
+   <option value="Banner Life">Banner Life</option>
+   <option value="Best Agency USA">Best Agency USA</option>
+    <option value="Blue Cross and Blue Shield">Blue Cross and Blue Shield</option>
+   <option value="Brooke Insurance">Brooke Insurance</option>
+   <option value="Cal Farm Insurance">Cal Farm Insurance</option>
+    <option value="California State Automobile Association">California State Automobile Association</option>
+   <option value="Chubb">Chubb</option>
+   <option value="Citizens">Citizens</option>
+    <option value="Clarendon American Insurance">Clarendon American Insurance</option>
+   <option value="Clarendon National Insurance">Clarendon National Insurance</option>
+   <option value="CNA">CNA</option>
+    <option value="Colonial Insurance">Colonial Insurance</option>
+   <option value="Comparison Market">Comparison Market</option>
+   <option value="Continental Casualty">Continental Casualty</option>
+    <option value="Continental Divide Insurance">Continental Divide Insurance</option>
+   <option value="Continental Insurance">Continental Insurance</option>
+   <option value="Cotton States Insurance">Cotton States Insurance</option>
+    <option value="Country Financial">Country Financial</option>
+   <option value="Country Insurance and Financial Services">Country Insurance and Financial Services</option>
+   <option value="Countrywide Insurance">Countrywide Insurance</option>
+    <option value="CSE Insurance Group">CSE Insurance Group</option>
+   <option value="Dairyland County Mutual Co of TX">Dairyland County Mutual Co of TX</option>
+   <option value="Dairyland Insurance">Dairyland Insurance</option>
+    <option value="eHealthInsurance Services">eHealthInsurance Services</option>
+   <option value="Electric Insurance">Electric Insurance</option>
+   <option value="Erie Insurance Company">Erie Insurance Company</option>
+    <option value="Erie Insurance Exchange">Erie Insurance Exchange</option>
+   <option value="Erie Insurance Group">Erie Insurance Group</option>
+   <option value="Erie Insurance Property and Casualty">Erie Insurance Property and Casualty</option>
+    <option value="Esurance">Esurance</option>
+   <option value="Farm Bureau">Farm Bureau</option>
+   <option value="Farm Bureau/Farm Family/Rural">Farm Bureau/Farm Family/Rural</option>
+    <option value="Farmers Insurance">Farmers Insurance</option>
+   <option value="Farmers Insurance Exchange">Farmers Insurance Exchange</option>
+   <option value="Farmers TX County Mutual">Farmers TX County Mutual</option>
+    <option value="Farmers Union">Farmers Union</option>
+   <option value="FinanceBox.com">FinanceBox.com</option>
+   <option value="Fire and Casualty Insurance Co of CT">Fire and Casualty Insurance Co of CT</option>
+    <option value="Foremost">Foremost</option>
+   <option value="Foresters">Foresters</option>
+   <option value="Geico">Geico</option>
+    <option value="Geico Casualty">Geico Casualty</option>
+   <option value="Geico General Insurance">Geico General Insurance</option>
+   <option value="Geico Indemnity">Geico Indemnity</option>
+    <option value="GMAC Insurance">GMAC Insurance</option>
+   <option value="Golden Rule Insurance">NGolden Rule Insuranceo</option>
+   <option value="Government Employees Insurance">Government Employees Insurance</option>
+    <option value="Guaranty National Insurance">Guaranty National Insurance</option>
+   <option value="Guide One Insurance">Guide One Insurance</option>
+   <option value="Hartford Accident and Indemnity">Hartford Accident and Indemnity</option>
+    <option value="Hartford Casualty Insurance">Hartford Casualty Insurance</option>
+   <option value="Hartford Fire Insurance">Hartford Fire Insurance</option>
+   <option value="Hartford Insurance Co of Illinois">Hartford Insurance Co of Illinois</option>
+    <option value="Hartford Insurance Co of the Southeast">Hartford Insurance Co of the Southeast</option>
+   <option value="Hartford Omni">Hartford Omni</option>
+   <option value="Hartford Underwriters Insurance">Hartford Underwriters Insurance</option>
+    <option value="Health Benefits Direct">Health Benefits Direct</option>
+   <option value="Health Choice One">Health Choice One</option>
+   <option value="Health Plus of America">Health Plus of America</option>
+    <option value="HealthShare American">HealthShare American</option>
+   <option value="Humana">Humana</option>
+   <option value="IFA Auto Insurance">IFA Auto Insurance</option>
+    <option value="IGF Insurance">IGF Insurance</option>
+   <option value="Infinity Insurance">Infinity Insurance</option>
+   <option value="Infinity National Insurance">Infinity National Insurance</option>
+    <option value="Infinity Select Insurance">Infinity Select Insurance</option>
+   <option value="Insurance Insight">Insurance Insight</option>
+   <option value="Insurance.com">Insurance.com</option>
+    <option value="InsuranceLeads.com">InsuranceLeads.com</option>
+   <option value="InsWeb">InsWeb</option>
+   <option value="Integon">Integon</option>
+    <option value="John Hancock">John Hancock</option>
+   <option value="Kaiser Permanente">Kaiser Permanente</option>
+   <option value="Kemper Lloyds Insurance">Kemper Lloyds Insurance</option>
+    <option value="Landmark American Insurance">Landmark American Insurance</option>
+   <option value="Leader National Insurance">Leader National Insurance</option>
+   <option value="Leader Preferred Insurance">Leader Preferred Insurance</option>
+    <option value="Leader Specialty Insurance">Leader Specialty Insurance</option>
+   <option value="Liberty Insurance Corp">Liberty Insurance Corp</option>
+   <option value="Liberty Mutual">Liberty Mutual</option>
+    <option value="Liberty Mutual Fire Insurance">Liberty Mutual Fire Insurance</option>
+   <option value="Liberty Mutual Insurance">Liberty Mutual Insurance</option>
+   <option value="Liberty National">Liberty National</option>
+    <option value="Liberty Northwest Insurance">Liberty Northwest Insurance</option>
+   <option value="Lumbermens Mutual">Lumbermens Mutual</option>
+   <option value="Maryland Casualty">Maryland Casualty</option>
+    <option value="Mass Mutual">Mass Mutual</option>
+   <option value="Mega/Midwest">Mega/Midwest</option>
+   <option value="Mercury">Mercury</option>
+    <option value="MetLife">MetLife</option>
+   <option value="MetLife Auto and Home ">MetLife Auto and Home</option>
+   <option value="Metropolitan Insurance Co.">Metropolitan Insurance Co.</option>
+    <option value="Mid Century Insurance">Mid Century Insurance</option>
+   <option value="Mid-Continent Casualty">Mid-Continent Casualty</option>
+   <option value="Middlesex Insurance">Middlesex Insurance</option>
+    <option value="Midland National Life">Midland National Life</option>
+   <option value="Mutual of New York">Mutual of New York</option>
+   <option value="Mutual Of Omaha">Mutual Of Omaha</option>
+    <option value="National Ben Franklin Insurance">National Ben Franklin Insurance</option>
+   <option value="National Casualty">National Casualty</option>
+   <option value="National Continental Insurance">National Continental Insurance</option>
+    <option value="National Fire Insurance Company of Hartford">National Fire Insurance Company of Hartford</option>
+   <option value="National Health Insurance">National Health Insurance</option>
+   <option value="National Indemnity">National Indemnity</option>
+    <option value="National Union Fire Insurance of LA">National Union Fire Insurance of LA</option>
+   <option value="National Union Fire Insurance of PA">National Union Fire Insurance of PA</option>
+   <option value="Nationwide">Nationwide</option>
+    <option value="Nationwide General Insurance">Nationwide General Insurance</option>
+   <option value="Nationwide Insurance Company">Nationwide Insurance Company</option>
+   <option value="Nationwide Mutual Fire Insurance">Nationwide Mutual Fire Insurance</option>
+    <option value="Nationwide Mutual Insurance">Nationwide Mutual Insurance</option>
+   <option value="Nationwide Property and Casualty">Nationwide Property and Casualty</option>
+   <option value="New England Financial">New England Financial</option>
+    <option value="New York Life Insurance">New York Life Insurance</option>
+   <option value="Northwestern Mutual Life">Northwestern Mutual Life</option>
+   <option value="Northwestern Pacific Indemnity">Northwestern Pacific Indemnity</option>
+    <option value="Omni Indemnity">Omni Indemnity</option>
+   <option value="Omni Insurance">Omni Insurance</option>
+   <option value="Orion Insurance">Orion Insurance</option>
+    <option value="Pacific Indemnity">Pacific Indemnity</option>
+   <option value="Pacific Insurance">Pacific Insurance</option>
+   <option value="Pafco General Insurance">Pafco General Insurance</option>
+    <option value="Patriot General Insurance">Patriot General Insurance</option>
+   <option value="Peak Property and Casualty Insurance">Peak Property and Casualty Insurance</option>
+   <option value="PEMCO Insurance">PEMCO Insurance</option>
+    <option value="Physicians">Physicians</option>
+   <option value="Progressive">Progressive</option>
+   <option value="Progressive Insurance">Progressive Insurance</option>
+    <option value="Progressive Auto Pro">Progressive Auto Pro</option>
+   <option value="Prudential">Prudential</option>
+   <option value="Prudential Insurance Co.">Prudential Insurance Co.</option>
+    <option value="Reliance Insurance">Reliance Insurance</option>
+   <option value="Reliance National Indemnity">Reliance National Indemnity</option>
+   <option value="Reliance National Insurance">Reliance National Insurance</option>
+    <option value="Republic Indemnity">Republic Indemnity</option>
+   <option value="Response Insurance">Response Insurance</option>
+   <option value="SAFECO">SAFECO</option>
+    <option value="Safeway Insurance">Safeway Insurance</option>
+   <option value="Safeway Insurance Co of AL">Safeway Insurance Co of AL</option>
+   <option value="Safeway Insurance Co of AL">Safeway Insurance Co of AL</option>
+    <option value="Safeway Insurance Co of LA">Safeway Insurance Co of LA</option>
+   <option value="Security Insurance Co of Hartford">Security Insurance Co of Hartford</option>
+   <option value="Security National Insurance Co of FL">Security National Insurance Co of FL</option>
+    <option value="Sentinel Insurance">Sentinel Insurance</option>
+   <option value="Sentry Insurance a Mutual Company">Sentry Insurance a Mutual Company</option>
+   <option value="Sentry Insurance Group">Sentry Insurance Group</option>
+    <option value="Shelter Insurance Co.">Shelter Insurance Co.</option>
+   <option value="St. Paul">St. Paul</option>
+   <option value="St. Paul Fire and Marine">St. Paul Fire and Marine</option>
+    <option value="St. Paul Insurance">St. Paul Insurance</option>
+   <option value="Standard Fire Insurance Company">Standard Fire Insurance Company</option>
+   <option value="State and County Mutual Fire Insurance">State and County Mutual Fire Insurance</option>
+    <option value="State Farm">State Farm</option>
+   <option value="State Farm County">State Farm County</option>
+   <option value="State Farm Fire and Cas">State Farm Fire and Cas</option>
+    <option value="State Farm General">State Farm General</option>
+   <option value="State Farm Indemnity">State Farm Indemnity</option>
+   <option value="State Farm Insurance Co.">State Farm Insurance Co.</option>
+    <option value="State Farm Lloyds Tx">State Farm Lloyds Tx</option>
+   <option value="State Farm Mutual Auto">State Farm Mutual Auto</option>
+   <option value="State Fund">State Fund</option>
+    <option value="State National Insurance">State National Insurance</option>
+   <option value="Superior American Insurance">Superior American Insurance</option>
+   <option value="Superior Guaranty Insurance">Superior Guaranty Insurance</option>
+    <option value="Superior Insurance">Superior Insurance</option>
+   <option value="Sure Health Plans">Sure Health Plans</option>
+   <option value="The Ahbe Group">The Ahbe Group</option>
+    <option value="The General">The General</option>
+   <option value="The Hartford">The Hartford</option>
+   <option value="TICO Insurance">TICO Insurance</option>
+    <option value="TIG Countrywide Insurance">TIG Countrywide Insurance</option>
+   <option value="Titan">Titan</option>
+   <option value="TransAmerica">TransAmerica</option>
+    <option value="Travelers Indemnity">Travelers Indemnity</option>
+   <option value="Travelers Insurance Company">Travelers Insurance Company</option>
+   <option value="Tri-State Consumer Insurance">Tri-State Consumer Insurance</option>
+    <option value="Twin City Fire Insurance">Twin City Fire Insurance</option>
+   <option value="UniCare">UniCare</option>
+   <option value="United American/Farm and Ranch">United American/Farm and Ranch</option>
+    <option value="United Pacific Insurance">United Pacific Insurance</option>
+   <option value="United Security">United Security</option>
+   <option value="United Services Automobile Association">United Services Automobile Association</option>
+    <option value="Unitrin Direct">Unitrin Direct</option>
+   <option value="Universal Underwriters Insurance">Universal Underwriters Insurance</option>
+   <option value="US Financial">US Financial</option>
+    <option value="USA Benefits/Continental General">USA Benefits/Continental General</option>
+   <option value="USAA">USAA</option>
+   <option value="USF and G">USF and G</option>
+   <option value="Viking County Mutual Insurance">Viking County Mutual Insurance</option>
+    <option value="Viking Insurance Co of WI">Viking Insurance Co of WI</option>
+   <option value="Wawanesa">Wawanesa</option>
+   <option value="Western and Southern Life">Western and Southern Life</option>
+   <option value="Western Mutual">Western Mutual</option>
+   <option value="Windsor Insurance">Windsor Insurance</option>
+   <option value="Woodlands Financial Group">Woodlands Financial Group</option>
+   <option value="Zurich North America">Zurich North America</option>
+    
+  </select>
+    
+    
+    
+  </div>
+  <div class="tab">
+    <p><input placeholder="vehicle_days_week" oninput="this.className = ''" name="vehicle_days_week" id="vehicle_days_week"></p>
+    <p><input placeholder="vehicle_oneway_distance" oninput="this.className = ''" name="vehicle_oneway_distance" id="vehicle_oneway_distance"></p>
+  </div>
+  <div class="tab">
+    <label for="credit">credit</label><br>
+ <select id="credit" name="credit" class="dropdwn">
+   <option value="Excellent">Excellent</option>
+   <option value="Good">Good</option>
+   <option value="Average">Average</option>
+   <option value="Poor">Poor</option>
+   
+</select>
+<br>
+    
+  </div>
+  <div class="tab">
+    
+    <label for="current_coverage_type">current_coverage_type</label><br>
+ <select id="current_coverage_type" name="current_coverage_type" class="dropdwn">
+   <option value="Preferred">Preferred</option>
+   <option value="Premium">Premium</option>
+   <option value="Standard">Standard</option>
+   <option value="State Minimum">State Minimum</option>
+   
+</select><br>
+    
+  </div>
+  <div class="tab">
+    <p><input placeholder="incident_date_1" oninput="this.className = ''" name="incident_date_1"></p>
+    <p><input placeholder="incident_date_2" oninput="this.className = ''" name="incident_date_2" id="incident_date_2"></p>
+    <p><input placeholder="current_coverage_start_date" oninput="this.className = ''" name="current_coverage_start_date" id="current_coverage_start_date"></p>
+  </div>
+ 
+ 
+  
+  <div class="tab">
+    <p><input placeholder="current_coverage_end_date" oninput="this.className = ''" name="current_coverage_end_date" id="current_coverage_end_date"></p>
+    <p><input placeholder="vehicle_year" oninput="this.className = ''" name="vehicle_year"></p>
+  </div>
+  <div class="tab">
+    
+    <label for="additional_vehicles">additional_vehicles</label><br>
+    <select id="additional_vehicles" name="additional_vehicles" class="dropdwn">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+      
+      
+   </select><br>
+   <label for="continuous_coverage">continuous_coverage</label><br>
+    <select id="continuous_coverage" name="continuous_coverage" class="dropdwn">
+      <option value="Less Than 6 Months">Less Than 6 Months</option>
+      <option value="6 Months">6 Months</option>
+      <option value="1 Year">1 Year</option>
+      <option value="2 Years">2 Years</option>
+      <option value="3 Years">3 Years</option>
+      <option value="3 to 5 Years">3 to 5 Years</option>
+      <option value="More than 5 Years">More than 5 Years</option>
+      
+      
+   </select><br>
+  </div>
+   <div class="tab">
+    
+    <p><input placeholder="age_when_licensed" oninput="this.className = ''" name="age_when_licensed" id="age_when_licensed"></p>
+    <p><input placeholder="age_when_licensed" oninput="this.className = ''" name="age_when_licensed" id="age_when_licensed"></p>
+  </div>
+    <div class="tab">
+    <p><input type="checkbox" oninput="this.className = ''" name="tcpa_consent" id="tcpa_consent" value="1">Agree</p>
+    <p><input type="checkbox" oninput="this.className = ''" name="tcpa_consent" id="tcpa_consent" value="0">Disagree</p>
+     <p><input type="checkbox" oninput="this.className = ''" name="tcpa_consent_text" id="tcpa_consent_text">By clicking the "See My Results" button above,
+      you are providing your electronic signature in which you consent, acknowledge and agree to the following: (a) our Terms of Service and Privacy Policy,
+      including our arbitration provision. (b) You are providing express written consent to share your information with RateMarketplace, and up to 5 Industry
+      Partners, or authorized third parties calling on our, or their behalf who may contact you for marketing purposes. (c) You give consent (consent not required
+      as a condition to purchase a good/service) for them/us to contact you through automated means at the phone number(s) and at the email address you have provided
+      (e.g. automatic telephone dialing system, text, artificial or pre-recorded messaging) via telephone, mobile device (including SMS and MMS) and/or email, even if
+     your telephone number is currently listed on any state, federal or corporate Do Not Call registry. You may opt-out from SMS or Text messages at any time by replying
+     STOP. Data and Msg rates may apply. As an alternative, you may contact us by email at: customercare@ratemarketplace.com. You understand that you may revoke this consent at any time.</p>
+  </div>
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+
+  <input type="hidden" id="trusted_form_cert_id" name="trusted_form_cert_id">
+  
+  <input type="hidden" id="data" name="ip_address"><br><br>
+  <input type="hidden" id="lp_campaign_id" name="lp_campaign_id" value="60cb3d4a1ed8b">
+
+  <input type="hidden" id="lp_campaign_key" name="lp_campaign_key" value="4372nmKWRrMf689kLDQZ">
+
+  <input type="hidden" id="lp_s1" name="lp_s1" value="test">
+
+  <input type="hidden" id="lp_s2" name="lp_s2" value="test">
+
+  <input type="hidden" id="lp_s3" name="lp_s3" value="test">
+
+  <input type="hidden" id="lp_s4" name="lp_s4" value="test">
+
+  <input type="hidden" id="lp_s5" name="lp_s5" value="test">
+  
+  <input type="hidden" id="lp_test" name="lp_test" value="test">
+  <input type="hidden" id="landing_page" name="landing_page" value="https://arbitrageleads.net/">
+  <input type="hidden" oninput="this.className = ''" name="user_agent" id="user_agent" value="not now">
+  
+  <input type="hidden" id="tcpa_consent_text" name="tcpa_consent_text" value="By clicking the 'See My Results' button above, you are providing your electronic signature in which you consent, acknowledge and agree to the following: (a) our Terms of Service and Privacy Policy, including our arbitration provision. (b) You are providing express written consent to share your information with RateMarketplace, and up to 5 Industry Partners, or authorized third parties calling on our, or their behalf who may contact you for marketing purposes. (c) You give consent (consent not required as a condition to purchase a good/service) for them/us to contact you through automated means at the phone number(s) and at the email address you have provided (e.g. automatic telephone dialing system, text, artificial or pre-recorded messaging) via telephone, mobile device (including SMS and MMS) and/or email, even if your telephone number is currently listed on any state, federal or corporate Do Not Call registry. You may opt-out from SMS or Text messages at any time by replying STOP. Data and Msg rates may apply. As an alternative, you may contact us by email at: customercare@ratemarketplace.com. You understand that you may revoke this consent at any time.">
+</form>
+<footer class="container-fluid" style=" background-color: rgb(0,0,0,0.5); height: 15vh;">
+  <div class="container">
+    <div class="row ">
+    <div class="fttr">
+            <a class="fa fa-facebook" href="#" style="color: #00ace6"></a>
+    
+      <a class="fa fa-instagram" href="#" style="color: #800000"></a>
+   
+      <a class="fa fa-whatsapp" href="#" style="color: #1aff1a"></a>
+   
+     <a class="fa fa-twitter" href="#" style="color: #00ace6"></a>
+    
+    </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script>
+<script type="text/javascript">
+        (function() {
+        var field = 'trusted_form_cert_id';
+        var provideReferrer = false;
+        var invertFieldSensitivity = false;
+        var tf = document.createElement('script');
+        tf.type = 'text/javascript'; tf.async = true;
+        tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+        '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random() + '&invert_field_sensitivity=' + invertFieldSensitivity;
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+        )();
+        </script>
+        <noscript>
+        <img src="http://api.trustedform.com/ns.gif" />
+        </noscript>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        
+            $.getJSON("https://api.ipify.org?format=json", function(data) { 
+        
+                $("#ip").html(data.ip); 
+                
+            }) 
+        
+        </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script>
+    setTimeout(function(){
+      if ($('#msg').length > 0){
+        $('#msg').remove();
+      }
+    }, 1)
+  </script>
+  <script type="text/javascript">
+    if(window.location.href.indexOf('?')!=-1){
+    document.getElementById('landing_page_url').value = window.location.href.slice(window.location.href.indexOf('?') + 1);
+    }
+    </script>
+    <script>
+      function myFunction() {
+        var x = "User-agent header sent: " + navigator.userAgent;
+        document.getElementById("user_agent").innerHTML = x;
+      }
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+  </body>
+</html>
